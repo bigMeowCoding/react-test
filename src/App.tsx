@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { memo, useCallback, useMemo, useState } from "react";
+import "./App.css";
+const Counter = memo(function Counter(props: { count?: number; click?: any }) {
+  console.log("render");
+  return <div onClick={props.click}>{props.count || 0}</div>;
+});
 function App() {
+  const [num, setNum] = useState(0);
+
+  const double = useMemo(() => {
+    return num * 2;
+  }, [num === 2]);
+  const clickHandle = useCallback(() => {
+    setNum((v) => v + 1);
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={clickHandle}>button</button>
+      {num} {double}
+      <Counter count={double} click={clickHandle}></Counter>
     </div>
   );
 }
