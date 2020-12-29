@@ -1,5 +1,14 @@
-.parent {
-  width:200px;
-  height:200px;
-  background: fade-out(red,0.5);
+.parent-box {
+  background: red;
+  .child-box {
+    background: pink;
+  }
+}
+.parent-box,
+.child-box {
+  width: 200px;
+  height: 200px;
+}
+.child-box {
+  background: yellow;
 }

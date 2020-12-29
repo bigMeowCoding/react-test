@@ -1,7 +1,5 @@
-import React, { Fragment } from "react";
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import React from "react";
 import "./App.css";
-import QrcodeCase from "./qrcode-case";
 import About from "./about/about";
 
 function App() {
