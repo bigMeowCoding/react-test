@@ -1,19 +1,11 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, { Fragment } from "react";
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import "./App.css";
 import QrcodeCase from "./qrcode-case";
-import about from "./about/about";
+import About from "./about/about";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/about" children={about} />
-        <Route path="/users" />
-        <Route path="/" component={QrcodeCase} />
-      </Switch>
-    </BrowserRouter>
-  );
+  return <About />;
 }
 
 export default App;
