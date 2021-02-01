@@ -1,9 +1,40 @@
-import React from "react";
+import React, {
+  FC,
+  memo,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import "./App.css";
-import About from "./about/about";
-
+const Info: FC<{ title: number; callback: () => void }> = memo(
+  ({ title, callback }) => {
+    console.log("render");
+    return <div>{title}</div>;
+  }
+);
 function App() {
-  return <About />;
+  const ref = useRef<number>(0),
+    [state, setState] = useState(0);
+  useEffect(() => {
+    console.log(ref);
+  }, [ref.current]);
+  const callback = useCallback(() => {}, []);
+  useEffect(() => {}, [state]);
+  return (
+    <>
+      <div>{state}</div>
+      <button
+        onClick={() => {
+          // ref.current = ref.current + 1;
+          setState((a) => a + 1);
+        }}
+      >
+        change
+      </button>
+      <Info title={ref.current} callback={callback} />
+    </>
+  );
 }
 
 export default App;
