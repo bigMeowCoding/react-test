@@ -1,13 +1,66 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+  word-break: break-all;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.box {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  top: 200px;
+  left: 200px;
+  background: red;
+}
+
+
+
+.my-motion-enter{
+   transform: translate3d(0, 100%, 0);
+ }
+
+.my-motion-enter,
+.my-motion-leave {
+   animation-duration: 0.3s;
+   animation-fill-mode: both;
+   animation-timing-function: ease-out;
+   animation-play-state: paused;
+ }
+
+.my-motion-enter{
+  animation-name: rcDialogSlideFadeIn;
+  animation-play-state: running;
+}
+
+
+.my-motion-leave {
+  animation-name: rcDialogSlideFadeOut;
+  animation-play-state: running;
+
+}
+
+@keyframes rcDialogSlideFadeIn {
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0%, 0);
+  }
+}
+@keyframes rcDialogSlideFadeOut {
+  0% {
+    transform: translate3d(0, 0%, 0);
+  }
+  100% {
+    transform: translate3d(0, 100%, 0);
+  }
 }

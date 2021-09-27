@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
+import FlexExercise from "./flex";
+import CSSMotion from "rc-motion";
+import classNames from "classnames";
+import "./index.css";
 function App() {
+  const [visible, setVisible] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/*<FlexExercise />*/}
+      <button
+        onClick={() => {
+          setVisible((v) => {
+            console.log("v", v);
+            return !v;
+          });
+        }}
+      >
+        sdf
+      </button>
+      <CSSMotion visible={visible} motionName="my-motion">
+        {({ className, style }) => (
+          <div className={classNames(className, "box")} style={style} />
+        )}
+      </CSSMotion>
+      ;
     </div>
   );
 }
