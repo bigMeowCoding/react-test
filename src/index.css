@@ -7,7 +7,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -22,30 +27,26 @@ code {
   background: red;
 }
 
-
-
-.my-motion-enter{
-   transform: translate3d(0, 100%, 0);
- }
+.my-motion-enter {
+  transform: translate3d(0, 100%, 0);
+}
 
 .my-motion-enter,
 .my-motion-leave {
-   animation-duration: 0.3s;
-   animation-fill-mode: both;
-   animation-timing-function: ease-out;
-   animation-play-state: paused;
- }
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+  animation-play-state: paused;
+}
 
-.my-motion-enter{
+.my-motion-enter {
   animation-name: rcDialogSlideFadeIn;
   animation-play-state: running;
 }
 
-
 .my-motion-leave {
   animation-name: rcDialogSlideFadeOut;
   animation-play-state: running;
-
 }
 
 @keyframes rcDialogSlideFadeIn {
